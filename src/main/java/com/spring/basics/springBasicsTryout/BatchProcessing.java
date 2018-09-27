@@ -6,6 +6,7 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.step.tasklet.TaskletStep;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
@@ -17,9 +18,10 @@ import org.springframework.context.annotation.Configuration;
 public class BatchProcessing {
 
     @Bean
+    @StepScope
     FlatFileItemReader<Person> reader() {
+        FlatFileItemReader<Person> r = new FlatFileItemReader<>();
         return null;
-
 
     }
 
